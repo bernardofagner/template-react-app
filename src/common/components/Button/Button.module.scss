@@ -1,0 +1,40 @@
+$cor-redirecionamento: #46D519;
+$cor-confirmacao: #6921E0;
+$borda-cancelamento : 2px solid #2E363B;
+
+.button { 
+    border-radius: 8px;
+    padding:16px 40px;
+    border:none;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    width: 100%;
+    transition: all .3s;
+
+    &.redirecionamento {
+        background-color: $cor-redirecionamento;
+        color:#FFF;
+
+        &.desabilitado {
+            color: #969696;
+            background-color: #E5E5E5;
+        }
+    }
+
+    &.confirmacao {
+        background-color: $cor-confirmacao;
+        color:#FFF;
+    }
+
+    &.cancelamento {
+        border: $borda-cancelamento;
+        color:var(--cor-texto);
+    }
+}
+
+.desabilitado {
+    pointer-events: none;   
+    transition: all .5s;
+}
