@@ -12,7 +12,6 @@ class SampleRepository extends RestBaseRepository {
 
         switch (response.Status) {
             case httpStatus.OK: {
-                
                 return response;
             }
             default: {
