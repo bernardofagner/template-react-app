@@ -1,7 +1,7 @@
 import httpStatus from 'http-status';
 import { Config } from '../config/Config';
 import { UserModelExtention } from '../models/users/UserModel';
-import { RestBaseRepository } from './base/RepositorioRestBase';
+import { RestBaseRepository } from './base/RestBaseRepository';
 
 class SampleRepository extends RestBaseRepository {
 
