@@ -41,8 +41,8 @@ export abstract class RestBaseRepository {
 
             return axiosResponse;
         }
-        catch(erro) {
-            const axiosError = erro as AxiosError;
+        catch(error) {
+            const axiosError = error as AxiosError;
             const axiosResponse = this.handleAxiosError(axiosError);
 
             return axiosResponse;
