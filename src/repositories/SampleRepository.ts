@@ -1,5 +1,6 @@
 import httpStatus from 'http-status';
 import { Config } from '../config/Config';
+import { UserModelExtention } from '../models/users/UserModel';
 import { RestBaseRepository } from './base/RepositorioRestBase';
 
 class SampleRepository extends RestBaseRepository {
@@ -28,8 +29,8 @@ class SampleRepository extends RestBaseRepository {
 
         switch (response.Status) {
             case httpStatus.OK: {
-                
-                return response;
+                const userInformation = UserModelExtention.MakeUser(response.Data);
+                return userInformation;
             }
             default: {
                 console.log(`Erroe: ${response.Status} | ${response.Error?.Message}`);
