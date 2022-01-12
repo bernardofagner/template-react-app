@@ -3,12 +3,12 @@ import { IAppRoutes } from '../';
 import { ApplicationRoutes } from '../../common/enums/rotas/ApplicationRoutes';
 
 import { About } from '../../features/About';
-import { Home } from '../../features/Home/Home';
+import { HomeContainer } from '../../features/Principal/HomeContainer/HomeContainer';
 
 const ApplicatioRoutesObject: IAppRoutes = {
     home: {
         pathRota: ApplicationRoutes.Home,
-        component: Home,
+        component: HomeContainer,
         nome: 'Rota exemplo About',
         public: true,
     },

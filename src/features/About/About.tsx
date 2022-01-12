@@ -15,10 +15,13 @@ const About: React.FC<IAboutProps> = ({ infoAbout, infoStatus, setInfoAbout, set
     
     useEffect(() => {
         init();
+        // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         setInfoAbout('Mensagem inicial ' + contador);
+
+        // eslint-disable-next-line
     }, [contador]);
 
     const init = () => {

@@ -6,16 +6,16 @@ import styles from './Breadcrumb.module.scss';
 import separadorSubmenuImg from '../../../assets/icons/separador-submenu.svg';
 import { ApplicationRoutes } from '../../enums/rotas/ApplicationRoutes';
 
-interface ILinkProps {
+export interface ILinkProps {
     titulo: string;
     href: ApplicationRoutes;
 }
 
-interface IBreadcrumbProps { 
+interface IBreadcrumbProps {
     links: Array<ILinkProps>;
 }
 
-const Breadcrumb: React.FC<IBreadcrumbProps> = ({links}) => {
+const Breadcrumb: React.FC<IBreadcrumbProps> = ({ links }) => {
     const navigate = useNavigate();
 
     const gerenciarRoteamento = (rota: ApplicationRoutes) => {
@@ -26,16 +26,45 @@ const Breadcrumb: React.FC<IBreadcrumbProps> = ({links}) => {
         <nav className={styles.navegacao}>
             <ul className={styles.breadcrumb}>
                 {links.map((link: ILinkProps) => {
+                    if (link.href !== ApplicationRoutes.NaoDefinido) {
+                        return (
+                            <li
+                                key={link.titulo}
+                                className={styles.link}
+                                onClick={() => gerenciarRoteamento(link.href)}
+                            >
+                                {link.titulo}
+                                <img
+                                    src={separadorSubmenuImg}
+                                    alt="Separador do Submenu"
+                                />
+                            </li>
+                        )
+                    }
+                    else {
+                        return (
+                            <li
+                                key={link.titulo}
+                                className={styles.link}
+                            >
+                                {link.titulo}
+                                <img
+                                    src={separadorSubmenuImg}
+                                    alt="Separador do Submenu"
+                                />
+                            </li>
+                        )
+                    }
                     return (
-                        <li 
-                            key={link.titulo} 
-                            className={styles.link} 
+                        <li
+                            key={link.titulo}
+                            className={styles.link}
                             onClick={() => gerenciarRoteamento(link.href)}
                         >
                             {link.titulo}
                             <img
-                            src={separadorSubmenuImg}
-                            alt="Separador do Submenu"
+                                src={separadorSubmenuImg}
+                                alt="Separador do Submenu"
                             />
                         </li>
                     )
